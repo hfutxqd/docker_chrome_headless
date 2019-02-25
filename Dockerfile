@@ -61,3 +61,5 @@ RUN apt-get install -y \
 RUN dpkg -i ./google-chrome-stable_current_amd64.deb
 RUN apt-get install -f
 
+
+RUN apt-get install gnupg2 -y
