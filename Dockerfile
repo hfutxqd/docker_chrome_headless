@@ -1,9 +1,12 @@
-FROM python:3.7
+FROM debian:stretch
+
 ENV TERM xterm
+
 RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
     && echo 'Asia/Shanghai' >/etc/timezone
 
-COPY . .
+COPY ./google-chrome-stable_current_amd64.deb ./google-chrome-stable_current_amd64.deb
+COPY ./chromedriver /usr/bin/chromedriver
 RUN sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
 RUN sed -i 's|security.debian.org/debian-security|mirrors.ustc.edu.cn/debian-security|g' /etc/apt/sources.list
 RUN apt-get update
