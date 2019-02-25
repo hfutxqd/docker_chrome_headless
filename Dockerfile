@@ -1,4 +1,4 @@
-FROM debian:stretch
+FROM buildpack-deps:stretch
 
 ENV TERM xterm
 
